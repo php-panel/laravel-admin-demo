@@ -5,9 +5,9 @@ namespace App\Admin\Controllers;
 use App\Admin\Extensions\Tools\GridView;
 use App\Models\Image;
 use App\Models\User;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
 use Illuminate\Support\Facades\Request;
 
 class ImageController extends AdminController

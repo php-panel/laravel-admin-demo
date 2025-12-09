@@ -4,11 +4,11 @@ namespace App\Admin\Controllers\Subway;
 
 use App\Models\Subway\Stop;
 
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Show;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
+use Ladmin\Layout\Content;
+use Ladmin\Show;
 
 class StopController extends AdminController
 {
@@ -23,7 +23,7 @@ class StopController extends AdminController
     {
         return $content
             ->title($this->title)
-            ->row(function($row) {
+            ->row(function ($row) {
                 $row->column(10, $this->grid());
                 $row->column(2, view('admin.grid.subway'));
             });
@@ -62,7 +62,7 @@ class StopController extends AdminController
         $grid->line()->name();
 
         $grid->column('position')->openMap(function () {
-            return [$this->lat/100000, $this->lng/100000];
+            return [$this->lat / 100000, $this->lng / 100000];
         }, 'Position');
 
         $grid->created_at();

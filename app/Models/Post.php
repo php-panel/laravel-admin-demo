@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Encore\Admin\Traits\AdminBuilder;
+use Ladmin\Traits\AdminBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 

@@ -2,8 +2,8 @@
 
 namespace App\Admin\Extensions\Tools;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid\Tools\AbstractTool;
+use Ladmin\Admin;
+use Ladmin\Grid\Tools\AbstractTool;
 use Illuminate\Support\Facades\Request;
 
 class Messagekind extends AbstractTool

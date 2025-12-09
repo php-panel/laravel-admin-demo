@@ -4,11 +4,11 @@ namespace App\Admin\Controllers;
 
 use App\Models\ChinaArea;
 use App\Models\User;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Show;
-use Encore\Admin\Widgets\Table;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
+use Ladmin\Show;
+use Ladmin\Widgets\Table;
 
 class UserController extends AdminController
 {
@@ -28,7 +28,7 @@ class UserController extends AdminController
         $grid->column('id', 'ID')->sortable()->totalRow();
         $grid->column('name')->editable();
         $grid->column('email')->editable();
-        $grid->column('profile.homepage');//->urlWrapper();
+        $grid->column('profile.homepage'); //->urlWrapper();
         $grid->column('address.province_id')->default('-');
         $grid->column('address.city_id')->default('-');
         $grid->column('address.district_id')->default('-');
@@ -36,7 +36,7 @@ class UserController extends AdminController
         $grid->column('address.city_id')->default('-');
         $grid->column('address.district_id')->default('-');
         $grid->column('profile.mobile')->prependIcon('phone');
-        $grid->column('profile.age');//->progressBar();
+        $grid->column('profile.age'); //->progressBar();
         $grid->column('profile.gender')->using(['f' => '女', 'm' => '男']);
         $grid->column('created_at');
         $grid->column('updated_at');
@@ -124,7 +124,6 @@ class UserController extends AdminController
 
             $profile->created_at();
             $profile->updated_at();
-
         });
 
         $show->sns(function ($sns) {
@@ -139,7 +138,6 @@ class UserController extends AdminController
 
             $sns->created_at();
             $sns->updated_at();
-
         });
 
         $show->address(function ($address) {
@@ -152,7 +150,6 @@ class UserController extends AdminController
 
             $address->created_at();
             $address->updated_at();
-
         });
 
         $show->friends(function ($friend) {
@@ -161,7 +158,6 @@ class UserController extends AdminController
 
             $friend->name();
             $friend->email();
-
         });
 
         return $show;
@@ -183,7 +179,6 @@ class UserController extends AdminController
             $form->email('email')->rules('required');
             $form->display('created_at');
             $form->display('updated_at');
-
         })->tab('Profile', function (Form $form) {
 
             $form->url('profile.homepage');
@@ -193,10 +188,9 @@ class UserController extends AdminController
             $form->mobile('profile.mobile')->default(13524120142);
             $form->date('profile.birthday');
 
-//                $form->map('profile.lat', 'profile.lng', 'Position')->useTencentMap();
+            //                $form->map('profile.lat', 'profile.lng', 'Position')->useTencentMap();
             $form->slider('profile.age', 'Age')->options(['max' => 50, 'min' => 20, 'step' => 1, 'postfix' => 'years old']);
             $form->datetimeRange('profile.created_at', 'profile.updated_at', 'Time line');
-
         })->tab('Sns info', function (Form $form) {
 
             $form->text('sns.qq');
@@ -208,7 +202,6 @@ class UserController extends AdminController
             $form->text('sns.twitter');
             $form->display('sns.created_at');
             $form->display('sns.updated_at');
-
         })->tab('Address', function (Form $form) {
 
             $form->select('address.province_id')->options(
@@ -226,12 +219,10 @@ class UserController extends AdminController
             });
 
             $form->text('address.address');
-
         })->tab('Password', function (Form $form) {
 
             $form->password('password')->rules('confirmed');
             $form->password('password_confirmation');
-
         });
 
         $form->ignore(['password_confirmation']);

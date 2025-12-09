@@ -5,11 +5,11 @@ namespace App\Admin\Controllers;
 use App\Admin\Extensions\Tools\Messagekind;
 use App\Models\Message;
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Facades\Admin;
+use Ladmin\Auth\Database\Administrator;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
+use Ladmin\Facades\Admin;
 use Illuminate\Support\Facades\Request;
 
 class MessageController extends AdminController

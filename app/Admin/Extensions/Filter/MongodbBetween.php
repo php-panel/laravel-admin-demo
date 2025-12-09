@@ -2,7 +2,7 @@
 
 namespace App\Admin\Extensions\Filter;
 
-use Encore\Admin\Grid\Filter\Between;
+use Ladmin\Grid\Filter\Between;
 
 class MongodbBetween extends Between
 {

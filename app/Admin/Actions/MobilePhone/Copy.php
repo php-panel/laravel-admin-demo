@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\MobilePhone;
 
-use Encore\Admin\Actions\RowAction;
+use Ladmin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 
 class Copy extends RowAction
@@ -15,5 +15,4 @@ class Copy extends RowAction
 
         return $this->response()->success('Success message.')->refresh();
     }
-
 }

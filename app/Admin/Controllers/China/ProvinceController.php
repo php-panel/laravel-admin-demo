@@ -4,11 +4,11 @@ namespace App\Admin\Controllers\China;
 
 use App\Models\ChinaArea;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Controllers\HasResourceActions;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Controllers\HasResourceActions;
+use Ladmin\Form;
+use Ladmin\Grid;
+use Ladmin\Layout\Content;
 
 class ProvinceController extends AdminController
 {

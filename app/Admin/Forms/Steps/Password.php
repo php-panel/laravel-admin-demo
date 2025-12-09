@@ -2,7 +2,7 @@
 
 namespace App\Admin\Forms\Steps;
 
-use Encore\Admin\Widgets\StepForm;
+use Ladmin\Widgets\StepForm;
 use Illuminate\Http\Request;
 
 class Password extends StepForm
@@ -23,7 +23,7 @@ class Password extends StepForm
      */
     public function handle(Request $request)
     {
-        $data = json_encode($this->all(), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+        $data = json_encode($this->all(), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
         admin_info('Form data', "<pre><code>$data</code></pre>");
 

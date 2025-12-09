@@ -2,8 +2,8 @@
 
 namespace App\Admin\Extensions\Column;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Grid\Displayers\AbstractDisplayer;
+use Ladmin\Facades\Admin;
+use Ladmin\Grid\Displayers\AbstractDisplayer;
 
 class UrlWrapper extends AbstractDisplayer
 {
@@ -27,7 +27,6 @@ $('.clipboard').tooltip({
 });
 
 EOT;
-
     }
 
     public function display()
@@ -51,6 +50,5 @@ EOT;
 </div>
 
 EOT;
-
     }
 }

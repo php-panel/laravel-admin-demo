@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Form;
+use Ladmin\Grid;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;

@@ -2,7 +2,7 @@
 
 namespace App\Admin\Forms\Settings;
 
-use Encore\Admin\Widgets\Form;
+use Ladmin\Widgets\Form;
 use Illuminate\Http\Request;
 
 class Basic extends Form
@@ -54,8 +54,6 @@ class Basic extends Form
      */
     public function data()
     {
-        return [
-
-        ];
+        return [];
     }
 }

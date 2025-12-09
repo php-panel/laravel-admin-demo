@@ -2,8 +2,8 @@
 
 namespace App\Admin\Extensions\Tools;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid\Tools\AbstractTool;
+use Ladmin\Admin;
+use Ladmin\Grid\Tools\AbstractTool;
 use Illuminate\Support\Facades\Request;
 
 class RefreshTimer extends AbstractTool
@@ -14,7 +14,7 @@ class RefreshTimer extends AbstractTool
     {
         $this->timeout = $timeout;
     }
-    
+
     public function render()
     {
         $state = Request::get('_timer', 0);
@@ -80,6 +80,5 @@ EOT;
 })();
 
 EOT;
-
     }
 }

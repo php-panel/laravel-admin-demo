@@ -9,12 +9,12 @@ use App\Models\Post;
 use App\Models\PostComment;
 use App\Models\Tag;
 use App\Models\User;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Show;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
+use Ladmin\Facades\Admin;
+use Ladmin\Layout\Content;
+use Ladmin\Show;
 use Illuminate\Http\Request;
 
 class PostController extends AdminController
@@ -101,7 +101,6 @@ class PostController extends AdminController
                 $grid->content();
                 $grid->created_at();
                 $grid->updated_at();
-
             }));
     }
 
@@ -141,9 +140,9 @@ class PostController extends AdminController
 
         $grid->column('float_bar')->floatBar();
 
-//        $grid->column('Comments')->display(function () {
-//            return $this->comments()->take(5)->get(['id', 'content', 'created_at'])->toArray();
-//        })->table();
+        //        $grid->column('Comments')->display(function () {
+        //            return $this->comments()->take(5)->get(['id', 'content', 'created_at'])->toArray();
+        //        })->table();
 
         $grid->created_at();
 
@@ -157,7 +156,7 @@ class PostController extends AdminController
 
             $filter->expand();
 
-            $filter->column(1/2, function ($filter) {
+            $filter->column(1 / 2, function ($filter) {
                 $filter->like('title');
 
                 $filter->group('rate', function ($group) {
@@ -167,10 +166,9 @@ class PostController extends AdminController
                     $group->ngt('不大于');
                     $group->equal('等于');
                 });
-
             });
 
-            $filter->column(1/2, function ($filter) {
+            $filter->column(1 / 2, function ($filter) {
                 $filter->equal('created_at')->datetime();
                 $filter->between('updated_at')->datetime();
                 $filter->where(function ($query) {
@@ -180,7 +178,6 @@ class PostController extends AdminController
                     $query->whereHas('tags', function ($query) use ($input) {
                         $query->where('name', $input);
                     });
-
                 }, 'Has tag', 'tag');
             });
 
@@ -199,7 +196,6 @@ class PostController extends AdminController
                 $batch->add('Unrelease', new ReleasePost(0));
                 $batch->add('Show selected', new ShowSelected());
             });
-
         });
 
         return $grid;
@@ -272,11 +268,11 @@ class PostController extends AdminController
 
         $form->tools(function (Form\Tools $tools) {
 
-//          $tools->disableList();
-//          $tools->disableDelete();
-//          $tools->disableView();
+            //          $tools->disableList();
+            //          $tools->disableDelete();
+            //          $tools->disableView();
 
-//          $tools->append('<a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>&nbsp;&nbsp;delete</a>');
+            //          $tools->append('<a class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>&nbsp;&nbsp;delete</a>');
         });
 
         return $form;

@@ -2,7 +2,7 @@
 
 namespace App\Admin\Extensions;
 
-use Encore\Admin\Grid\Exporters\AbstractExporter;
+use Ladmin\Grid\Exporters\AbstractExporter;
 use Maatwebsite\Excel\Classes\LaravelExcelWorksheet;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -10,9 +10,9 @@ class ExcelExporter extends AbstractExporter
 {
     public function export()
     {
-        Excel::create('Filename', function($excel) {
+        Excel::create('Filename', function ($excel) {
 
-            $excel->sheet('Sheetname', function(LaravelExcelWorksheet $sheet) {
+            $excel->sheet('Sheetname', function (LaravelExcelWorksheet $sheet) {
 
                 $this->chunk(function ($records) use ($sheet) {
 
@@ -21,11 +21,8 @@ class ExcelExporter extends AbstractExporter
                     });
 
                     $sheet->rows($rows);
-
                 });
-
             });
-
         })->export('xls');
     }
 }

@@ -3,10 +3,10 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\Box;
-use Encore\Admin\Widgets\Callout;
-use Encore\Admin\Widgets\Form;
+use Ladmin\Layout\Content;
+use Ladmin\Widgets\Box;
+use Ladmin\Widgets\Callout;
+use Ladmin\Widgets\Form;
 
 class EditorsController extends Controller
 {

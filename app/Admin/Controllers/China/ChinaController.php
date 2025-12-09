@@ -4,10 +4,10 @@ namespace App\Admin\Controllers\China;
 
 use App\Http\Controllers\Controller;
 use App\Models\ChinaArea;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\Box;
-use Encore\Admin\Widgets\Form;
-use Encore\Admin\Widgets\Table;
+use Ladmin\Layout\Content;
+use Ladmin\Widgets\Box;
+use Ladmin\Widgets\Form;
+use Ladmin\Widgets\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,13 +30,11 @@ class ChinaController extends Controller
         $form->select('city')->options(function ($id) {
 
             return ChinaArea::options($id);
-
         })->load('district', '/demo/api/china/district');
 
         $form->select('district')->options(function ($id) {
 
             return ChinaArea::options($id);
-
         });
         $content->row(new Box('Form', $form));
 

@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\Post;
 
-use Encore\Admin\Actions\BatchAction;
+use Ladmin\Actions\BatchAction;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
@@ -12,7 +12,7 @@ class ReportPost extends BatchAction
 
     public function handle(Collection $collection, Request $request)
     {
-//        $collection->each->delete();
+        //        $collection->each->delete();
 
         return $this->response()->topCenter()->success($request->get('title'))->refresh();
     }

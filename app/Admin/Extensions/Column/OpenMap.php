@@ -2,24 +2,24 @@
 
 namespace App\Admin\Extensions\Column;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid\Displayers\AbstractDisplayer;
+use Ladmin\Admin;
+use Ladmin\Grid\Displayers\AbstractDisplayer;
 
 class OpenMap extends AbstractDisplayer
 {
-    public function display(\Closure $callback = null, $btn = '')
-    {
-        $callback = $callback->bindTo($this->row);
+  public function display(?\Closure $callback = null, $btn = '')
+  {
+    $callback = $callback->bindTo($this->row);
 
-        list($latitude, $longitude) = call_user_func($callback);
+    list($latitude, $longitude) = call_user_func($callback);
 
-        $key = $this->getKey();
+    $key = $this->getKey();
 
-        $name = $this->column->getName();
+    $name = $this->column->getName();
 
-        Admin::script($this->script());
+    Admin::script($this->script());
 
-        return <<<EOT
+    return <<<EOT
 <button class="btn btn-xs btn-default grid-open-map" data-key="{$key}" data-lat="$latitude" data-lng="$longitude" data-toggle="modal" data-target="#grid-modal-{$name}-{$key}">
     <i class="fa fa-map-marker"></i> $btn
 </button>
@@ -41,11 +41,11 @@ class OpenMap extends AbstractDisplayer
   <!-- /.modal-dialog -->
 </div>
 EOT;
-    }
+  }
 
-    protected function script()
-    {
-        return <<<EOT
+  protected function script()
+  {
+    return <<<EOT
 
 $('.grid-open-map').on('click', function() {
 
@@ -69,5 +69,5 @@ $('.grid-open-map').on('click', function() {
 });
 
 EOT;
-    }
+  }
 }

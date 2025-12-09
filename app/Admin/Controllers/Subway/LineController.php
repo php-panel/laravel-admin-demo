@@ -4,11 +4,11 @@ namespace App\Admin\Controllers\Subway;
 
 use App\Models\Subway\Line;
 
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Show;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
+use Ladmin\Layout\Content;
+use Ladmin\Show;
 
 class LineController extends AdminController
 {
@@ -24,7 +24,7 @@ class LineController extends AdminController
         return $content
             ->title($this->title)
             ->description('description')
-            ->row(function($row) {
+            ->row(function ($row) {
                 $row->column(10, $this->grid());
                 $row->column(2, view('admin.grid.subway'));
             });

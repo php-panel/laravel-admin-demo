@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\Post;
 
-use Encore\Admin\Actions\BatchAction;
+use Ladmin\Actions\BatchAction;
 use Illuminate\Database\Eloquent\Collection;
 
 class ShowSelected extends BatchAction

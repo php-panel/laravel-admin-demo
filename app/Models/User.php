@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\User\Address;
 use App\Models\User\Profile;
 use App\Models\User\Sns;
-use Encore\Admin\Traits\AdminBuilder;
+use Ladmin\Traits\AdminBuilder;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
@@ -77,4 +77,3 @@ class User extends Model
         return 'users';
     }
 }
-

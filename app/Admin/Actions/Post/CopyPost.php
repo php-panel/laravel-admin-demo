@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\Post;
 
-use Encore\Admin\Actions\RowAction;
+use Ladmin\Actions\RowAction;
 use App\Models\Post;
 
 class CopyPost extends RowAction

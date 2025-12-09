@@ -4,8 +4,8 @@ namespace App\Admin\Controllers\Movies;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movie\Top250;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use Ladmin\Grid;
+use Ladmin\Layout\Content;
 
 class Top250Controller extends Controller
 {
@@ -39,7 +39,7 @@ class Top250Controller extends Controller
         });
         $grid->directors()->pluck('name')->label('primary');
 
-        $grid->casts()->pluck('name')->label();
+        $grid->castList()->pluck('name')->label();
 
         $grid->genres()->badge();
 

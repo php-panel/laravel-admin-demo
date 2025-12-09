@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\Post;
 
-use Encore\Admin\Actions\Action;
+use Ladmin\Actions\Action;
 use Illuminate\Http\Request;
 
 class ImportPost extends Action

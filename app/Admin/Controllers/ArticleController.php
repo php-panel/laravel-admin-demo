@@ -3,9 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Article;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
 
 class ArticleController extends AdminController
 {

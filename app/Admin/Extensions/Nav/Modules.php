@@ -2,14 +2,14 @@
 
 namespace App\Admin\Extensions\Nav;
 
-use Encore\Admin\Admin;
+use Ladmin\Admin;
 use Illuminate\Contracts\Support\Renderable;
 
 class Modules implements Renderable
 {
-    protected function renderModal()
-    {
-        $modal = <<<MODAL
+  protected function renderModal()
+  {
+    $modal = <<<MODAL
 <div class="modal fade" id="admin-modules">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -42,29 +42,28 @@ class Modules implements Renderable
 </div>
 MODAL;
 
-        Admin::html($modal);
-    }
+    Admin::html($modal);
+  }
 
-    public function render()
-    {
-        $script = <<<SCRIPT
+  public function render()
+  {
+    $script = <<<SCRIPT
 $(function(){
     $('#admin-modules a').click(function() {
         $('.modal').modal('hide');
     });
 });
 SCRIPT;
-        Admin::script($script);
+    Admin::script($script);
 
-        $this->renderModal();
+    $this->renderModal();
 
-        return <<<HTML
+    return <<<HTML
 <li data-toggle="modal" data-target="#admin-modules">
     <a href="#">
         <i class="fa fa-th-large"></i>
     </a>
 </li>
 HTML;
-
-    }
+  }
 }

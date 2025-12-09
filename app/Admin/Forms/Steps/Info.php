@@ -2,7 +2,7 @@
 
 namespace App\Admin\Forms\Steps;
 
-use Encore\Admin\Widgets\StepForm;
+use Ladmin\Widgets\StepForm;
 use Illuminate\Http\Request;
 
 class Info extends StepForm

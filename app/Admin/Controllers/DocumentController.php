@@ -10,10 +10,10 @@ use App\Admin\Actions\Document\ShareDocument;
 use App\Admin\Actions\Document\ShareDocuments;
 use App\Models\Document;
 use App\Models\User;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Show;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
+use Ladmin\Show;
 use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends AdminController
@@ -43,7 +43,7 @@ class DocumentController extends AdminController
             $create->email('desc');
         });
 
-//        $grid->enableHotKeys();
+        //        $grid->enableHotKeys();
 
         $grid->column('id', __('ID'))
             ->totalRow('统计')
@@ -132,7 +132,7 @@ class DocumentController extends AdminController
         $show->field('id', __('ID'));
         $show->field('title', __('Title'));
         $show->field('desc', __('Desc'));
-//        $show->field('uploader.name', __('Uploader id'));
+        //        $show->field('uploader.name', __('Uploader id'));
 
         $show->field('uploader', '作者')->as(function ($uploader) {
             return $uploader['name'];
@@ -163,7 +163,7 @@ class DocumentController extends AdminController
         $form->textarea('desc', __('Desc'))->required();
         $form->select('uploader_id', __('Uploader'))
             ->options(User::all()->pluck('name', 'id'))
-//            ->ajax('/demo/api/users')
+            //            ->ajax('/demo/api/users')
             ->rules('required');
         $form->file('path', __('Path'))->required();
         $form->number('view_count', __('View count'))->default(0);

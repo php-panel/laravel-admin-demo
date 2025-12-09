@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\MobilePhone;
 
-use Encore\Admin\Actions\BatchAction;
+use Ladmin\Actions\BatchAction;
 use Illuminate\Database\Eloquent\Collection;
 
 class BatchCopy extends BatchAction
@@ -17,5 +17,4 @@ class BatchCopy extends BatchAction
 
         return $this->response()->success('Success message...')->refresh();
     }
-
 }

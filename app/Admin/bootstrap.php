@@ -5,14 +5,14 @@ use App\Admin\Extensions\Column\OpenMap;
 use App\Admin\Extensions\Column\FloatBar;
 use App\Admin\Extensions\Column\UrlWrapper;
 use App\Admin\Extensions\Nav;
-use Encore\Admin\Form;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Grid\Column;
+use Ladmin\Form;
+use Ladmin\Facades\Admin;
+use Ladmin\Grid\Column;
 
 Form::forget(['map', 'editor']);
 
-Form::extend('json', \Encore\JsEditor\Json::class);
-Form::extend('jsonEditor', \Jxlwqq\JsonEditor\Editor::class);
+Form::extend('json', Ladmin\JsEditor\Json::class);
+// Form::extend('jsonEditor', Ladmin\JsonEditor\Editor::class);
 
 Admin::css('/vendor/prism/prism.css');
 Admin::js('/vendor/prism/prism.js');
@@ -26,7 +26,7 @@ Column::extend('prependIcon', function ($value, $icon) {
     return "<span style='color: #999;'><i class='fa fa-$icon'></i>  $value</span>";
 });
 
-Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+Admin::navbar(function (\Ladmin\Widgets\Navbar $navbar) {
     $navbar->right(Nav\Link::make('Settings', 'forms/settings'));
     $navbar->right(Nav\Link::make('Register', 'forms/register', 'fa-user'));
     $navbar->right(new Nav\AutoRefresh())
@@ -48,5 +48,3 @@ Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
 
     $navbar->left(new Nav\Dropdown());
 });
-
-

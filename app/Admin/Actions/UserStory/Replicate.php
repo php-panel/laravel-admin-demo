@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\UserStory;
 
-use Encore\Admin\Actions\RowAction;
+use Ladmin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 
 class Replicate extends RowAction
@@ -19,5 +19,4 @@ class Replicate extends RowAction
 
         return $this->response()->success('复制成功.')->refresh();
     }
-
 }

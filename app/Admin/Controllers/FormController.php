@@ -6,10 +6,10 @@ use App\Admin\Forms\Settings;
 use App\Admin\Forms\Steps;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Encore\Admin\Admin;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\MultipleSteps;
-use Encore\Admin\Widgets;
+use Ladmin\Admin;
+use Ladmin\Layout\Content;
+use Ladmin\Widgets\MultipleSteps;
+use Ladmin\Widgets;
 
 class FormController extends Controller
 {

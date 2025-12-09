@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name'      => 'Laravel-admin',
+    'name' => 'Laravel-admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo'      => '<b>Laravel</b> admin',
+    'logo' => '<b>Laravel</b> admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,11 +58,11 @@ return [
     */
     'route' => [
 
-        'prefix' => '',
+        'prefix' => env('ADMIN_ROUTE_PREFIX', 'admin'),
 
-        'namespace'     => 'App\\Admin\\Controllers',
+        'namespace' => 'App\\Admin\\Controllers',
 
-        'middleware'    => ['web', 'admin', 'deny'],
+        'middleware' => ['web', 'admin'],
     ],
 
     /*
@@ -85,7 +85,7 @@ return [
     | Html title for all pages.
     |
     */
-    'title'  => 'Admin',
+    'title' => 'Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -105,20 +105,24 @@ return [
     | Authentication settings for all admin pages. Include an authentication
     | guard and a user provider setting of authentication driver.
     |
+    | You can specify a controller for `login` `logout` and other auth routes.
+    |
     */
     'auth' => [
+        'guard' => 'admin',
+
         'guards' => [
             'admin' => [
-                'driver' => 'session',
+                'driver'   => 'session',
                 'provider' => 'admin',
-            ]
+            ],
         ],
 
         'providers' => [
             'admin' => [
                 'driver' => 'eloquent',
-                'model'  => Encore\Admin\Auth\Database\Administrator::class,
-            ]
+                'model'  => Ladmin\Auth\Database\Administrator::class,
+            ],
         ],
 
         // Add "remember me" to login form
@@ -143,14 +147,16 @@ return [
     | disk and upload path.
     |
     */
-    'upload'  => [
+    'upload' => [
 
+        // Disk in `config/filesystem.php`.
         'disk' => 'admin',
 
-        'directory'  => [
-            'image'  => 'images',
-            'file'   => 'files',
-        ]
+        // Image and file upload path under the disk above.
+        'directory' => [
+            'image' => 'images',
+            'file'  => 'files',
+        ],
     ],
 
     /*
@@ -164,23 +170,23 @@ return [
     'database' => [
 
         // Database connection for following tables.
-        'connection'  => '',
+        'connection' => '',
 
         // User tables and model.
         'users_table' => 'admin_users',
-        'users_model' => Encore\Admin\Auth\Database\Administrator::class,
+        'users_model' => Ladmin\Auth\Database\Administrator::class,
 
         // Role table and model.
         'roles_table' => 'admin_roles',
-        'roles_model' => Encore\Admin\Auth\Database\Role::class,
+        'roles_model' => Ladmin\Auth\Database\Role::class,
 
         // Permission table and model.
         'permissions_table' => 'admin_permissions',
-        'permissions_model' => Encore\Admin\Auth\Database\Permission::class,
+        'permissions_model' => Ladmin\Auth\Database\Permission::class,
 
         // Menu table and model.
-        'menu_table'  => 'admin_menu',
-        'menu_model'  => Encore\Admin\Auth\Database\Menu::class,
+        'menu_table' => 'admin_menu',
+        'menu_model' => Ladmin\Auth\Database\Menu::class,
 
         // Pivot table for table above.
         'operation_log_table'    => 'admin_operation_log',
@@ -198,7 +204,7 @@ return [
     | By setting this option to open or close operation log in laravel-admin.
     |
     */
-    'operation_log'   => [
+    'operation_log' => [
 
         'enable' => true,
 
@@ -214,9 +220,23 @@ return [
          * or specific method to path like: get:admin/auth/logs.
          */
         'except' => [
-            'admin/auth/logs*',
+            env('ADMIN_ROUTE_PREFIX', 'admin') . '/auth/logs*',
         ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Indicates whether to check route permission.
+    |--------------------------------------------------------------------------
+    */
+    'check_route_permission' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Indicates whether to check menu roles.
+    |--------------------------------------------------------------------------
+    */
+    'check_menu_roles'       => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -244,7 +264,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This value is the skin of admin pages.
-    | @see https://adminlte.io/docs/2.4/skin
+    | @see https://adminlte.io/docs/2.4/layout
     |
     | Supported:
     |    "skin-blue", "skin-blue-light", "skin-yellow", "skin-yellow-light",
@@ -252,7 +272,7 @@ return [
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-blue-light',
+    'skin' => env('ADMIN_SKIN', 'skin-blue-light'),
 
     /*
     |--------------------------------------------------------------------------
@@ -266,7 +286,7 @@ return [
     | "sidebar-mini".
     |
     */
-    'layout'  => ['sidebar-mini'],
+    'layout' => ['sidebar-mini', 'sidebar-collapse'],
 
     /*
     |--------------------------------------------------------------------------
@@ -276,14 +296,14 @@ return [
     | This value is used to set the background image of login page.
     |
     */
-    'login_background_image' => '/img/login-bg.jpg',
+    'login_background_image' => '',
 
     /*
     |--------------------------------------------------------------------------
     | Show version at footer
     |--------------------------------------------------------------------------
     |
-    | Whether to display the version number of laravel-admim at the footer of
+    | Whether to display the version number of laravel-admin at the footer of
     | each page
     |
     */
@@ -325,9 +345,7 @@ return [
     'minify_assets' => [
 
         // Assets will not be minified.
-        'excepts' => [
-
-        ],
+        'excepts' => [],
 
     ],
 
@@ -337,6 +355,16 @@ return [
     |--------------------------------------------------------------------------
     */
     'enable_menu_search' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Exclude route from generate menu command
+    |--------------------------------------------------------------------------
+    */
+    'menu_exclude' => [
+        '_handle_selectable_',
+        '_handle_renderable_',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -350,7 +378,7 @@ return [
     | The global Grid action display class.
     |--------------------------------------------------------------------------
     */
-//    'grid_action_class' => \Encore\Admin\Grid\Displayers\DropdownActions::class,
+    'grid_action_class' => \Ladmin\Grid\Displayers\DropdownActions::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -360,7 +388,7 @@ return [
     | When you use command `php artisan admin:extend` to generate extensions,
     | the extension files will be generated in this directory.
     */
-    'extension_dir' => admin_path('extensions'),
+    'extension_dir' => app_path('Admin/Extensions'),
 
     /*
     |--------------------------------------------------------------------------
@@ -388,7 +416,7 @@ return [
         ],
 
         'phpinfo' => [
-            'what' => INFO_ALL^INFO_VARIABLES^INFO_ENVIRONMENT
+            'what' => INFO_ALL ^ INFO_VARIABLES ^ INFO_ENVIRONMENT
         ],
 
         'wang-editor' => [

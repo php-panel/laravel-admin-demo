@@ -4,9 +4,9 @@ namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\Callout;
+use Ladmin\Grid;
+use Ladmin\Layout\Content;
+use Ladmin\Widgets\Callout;
 
 class LightboxController extends Controller
 {

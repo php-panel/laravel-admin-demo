@@ -2,8 +2,8 @@
 
 namespace App\Admin\Extensions\Column;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid\Displayers\AbstractDisplayer;
+use Ladmin\Admin;
+use Ladmin\Grid\Displayers\AbstractDisplayer;
 
 class FloatBar extends AbstractDisplayer
 {
@@ -20,7 +20,6 @@ $('.grid-float-bar').closest('tr').mouseout(function () {
 });
 
 EOT;
-
     }
 
     public function display()

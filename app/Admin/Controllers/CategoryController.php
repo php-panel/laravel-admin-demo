@@ -3,10 +3,10 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Category;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Tree;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Layout\Content;
+use Ladmin\Tree;
 
 class CategoryController extends AdminController
 {
@@ -35,12 +35,11 @@ class CategoryController extends AdminController
 
             $tree->branch(function ($branch) {
 
-                $src = config('admin.upload.host') . '/' . $branch['logo'] ;
+                $src = config('admin.upload.host') . '/' . $branch['logo'];
 
                 $logo = "<img src='$src' style='max-width:30px;max-height:30px' class='img'/>";
 
                 return "{$branch['id']} - {$branch['title']} $logo";
-
             });
         });
     }

@@ -4,9 +4,9 @@ namespace App\Admin\Controllers;
 
 use App\Models\Post;
 use App\Models\PostComment;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
 
 class PostCommentController extends AdminController
 {

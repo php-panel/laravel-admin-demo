@@ -3,9 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Tag;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
 
 class TagController extends AdminController
 {
@@ -37,7 +37,9 @@ class TagController extends AdminController
         ];
 
         $grid->column('switch_group')->switchGroup([
-            'recommend' => '推荐', 'hot' => '热门', 'new' => '最新'
+            'recommend' => '推荐',
+            'hot' => '热门',
+            'new' => '最新'
         ], $states);
 
         $grid->created_at();

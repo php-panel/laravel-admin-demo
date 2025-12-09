@@ -3,76 +3,76 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\Box;
-use Encore\Admin\Widgets\Callout;
-use Encore\Admin\Widgets\Form;
+use Ladmin\Layout\Content;
+use Ladmin\Widgets\Box;
+use Ladmin\Widgets\Callout;
+use Ladmin\Widgets\Form;
 
 class CodemirrorController extends Controller
 {
-    public function clike(Content $content)
-    {
-        $form = new Form();
-        $form->clang('clang')->default($this->defaultValues['clang']);
-        $form->cpp('cpp')->default($this->defaultValues['clang']);
-        $form->objectivec('objectivec')->default($this->defaultValues['objectivec']);
-        $form->java('java')->default($this->defaultValues['java']);
-        $form->kotlin('kotlin')->default($this->defaultValues['kotlin']);
-        $form->scala('scala')->default($this->defaultValues['scala']);
-        $form->ceylon('ceylon')->default($this->defaultValues['ceylon']);
+  public function clike(Content $content)
+  {
+    $form = new Form();
+    $form->clang('clang')->default($this->defaultValues['clang']);
+    $form->cpp('cpp')->default($this->defaultValues['clang']);
+    $form->objectivec('objectivec')->default($this->defaultValues['objectivec']);
+    $form->java('java')->default($this->defaultValues['java']);
+    $form->kotlin('kotlin')->default($this->defaultValues['kotlin']);
+    $form->scala('scala')->default($this->defaultValues['scala']);
+    $form->ceylon('ceylon')->default($this->defaultValues['ceylon']);
 
-        return $content
-            ->title($title = 'Clike Editor')
-            ->row($this->info('https://github.com/laravel-admin-extensions/clike-editor', $title))
-            ->row(new Box($title, $form));
-    }
+    return $content
+      ->title($title = 'Clike Editor')
+      ->row($this->info('https://github.com/laravel-admin-extensions/clike-editor', $title))
+      ->row(new Box($title, $form));
+  }
 
-    public function php(Content $content)
-    {
-        $form = new Form();
-        $form->php('php')->default($this->defaultValues['php']);
+  public function php(Content $content)
+  {
+    $form = new Form();
+    $form->php('php')->default($this->defaultValues['php']);
 
-        return $content
-            ->title($title = 'PHP Editor')
-            ->row($this->info('https://github.com/laravel-admin-extensions/php-editor', $title))
-            ->row(new Box($title, $form));
-    }
+    return $content
+      ->title($title = 'PHP Editor')
+      ->row($this->info('https://github.com/laravel-admin-extensions/php-editor', $title))
+      ->row(new Box($title, $form));
+  }
 
-    public function js(Content $content)
-    {
-        $form = new Form();
-        $form->js('js')->default($this->defaultValues['js']);
-        $form->json('json')->default($this->defaultValues['json']);
-        $form->jsond('jsond')->default($this->defaultValues['jsond']);
-        $form->typescript('typescript')->default($this->defaultValues['typescript']);
+  public function js(Content $content)
+  {
+    $form = new Form();
+    $form->js('js')->default($this->defaultValues['js']);
+    $form->json('json')->default($this->defaultValues['json']);
+    $form->jsond('jsond')->default($this->defaultValues['jsond']);
+    $form->typescript('typescript')->default($this->defaultValues['typescript']);
 
-        return $content
-            ->title($title = 'Javascript Editor')
-            ->row($this->info('https://github.com/laravel-admin-extensions/js-editor', $title))
-            ->row(new Box($title, $form));
-    }
+    return $content
+      ->title($title = 'Javascript Editor')
+      ->row($this->info('https://github.com/laravel-admin-extensions/js-editor', $title))
+      ->row(new Box($title, $form));
+  }
 
-    public function python(Content $content)
-    {
-        $form = new Form();
-        $form->python('python3')->default($this->defaultValues['python']);
-        $form->python('python2')->version(2)->default($this->defaultValues['python']);
+  public function python(Content $content)
+  {
+    $form = new Form();
+    $form->python('python3')->default($this->defaultValues['python']);
+    $form->python('python2')->version(2)->default($this->defaultValues['python']);
 
-        return $content
-            ->title($title = 'Python Editor')
-            ->row($this->info('https://github.com/laravel-admin-extensions/python-editor', $title))
-            ->row(new Box($title, $form));
-    }
+    return $content
+      ->title($title = 'Python Editor')
+      ->row($this->info('https://github.com/laravel-admin-extensions/python-editor', $title))
+      ->row(new Box($title, $form));
+  }
 
-    protected function info($url, $title)
-    {
-        $content = "<a href=\"{$url}\" target='_blank'>{$url}</a>";
+  protected function info($url, $title)
+  {
+    $content = "<a href=\"{$url}\" target='_blank'>{$url}</a>";
 
-        return new Callout($content, $title, 'info');
-    }
+    return new Callout($content, $title, 'info');
+  }
 
-    protected $defaultValues = [
-        'clang' => <<<'CODE'
+  protected $defaultValues = [
+    'clang' => <<<'CODE'
 /* C demo code */
 
 #include <zmq.h>
@@ -139,10 +139,9 @@ void* zmq_thread_init(void* zmq_context, int signal_fd) {
   return context;
 }
 
-CODE
-        ,
+CODE,
 
-        'cpp' => <<<'CODE'
+    'cpp' => <<<'CODE'
 #include <iostream>
 #include "mystuff/util.h"
 
@@ -182,11 +181,10 @@ void Class::Method2(MyType<T, V>* value) {
   member_ = value;
 }
 
-CODE
-        ,
+CODE,
 
 
-        'objectivec' => <<<'CODE'
+    'objectivec' => <<<'CODE'
 /*
 This is a longer comment
 That spans two lines
@@ -203,10 +201,9 @@ That spans two lines
   return YES;
 }
 
-CODE
-        ,
+CODE,
 
-        'java' => <<<'CODE'
+    'java' => <<<'CODE'
 import com.demo.util.MyType;
 import com.demo.util.MyInterface;
 
@@ -236,10 +233,9 @@ public class Class<T, V> implements MyInterface {
 }
 
 
-CODE
-        ,
+CODE,
 
-        'scala' => <<<'CODE'
+    'scala' => <<<'CODE'
 object FilterTest extends App {
   def filter(xs: List[Int], threshold: Int) = {
     def process(ys: List[Int]): List[Int] =
@@ -251,10 +247,9 @@ object FilterTest extends App {
   println(filter(List(1, 9, 2, 8, 3, 7, 4), 5))
 }
 
-CODE
-        ,
+CODE,
 
-        'kotlin' => <<<'CODE'
+    'kotlin' => <<<'CODE'
 package org.wasabi.http
 
 import java.util.concurrent.Executors
@@ -303,10 +298,9 @@ public class HttpServer(private val appServer: AppServer) {
     }
 }
 
-CODE
-        ,
+CODE,
 
-        'ceylon' => <<<'CODE'
+    'ceylon' => <<<'CODE'
 "Produces the [[stream|Iterable]] that results from repeated
  application of the given [[function|next]] to the given
  [[first]] element of the stream, until the function first
@@ -348,10 +342,9 @@ shared {Element+} loop<Element>(
         };
     };
 
-CODE
-        ,
+CODE,
 
-        'php' => <<<'CODE'
+    'php' => <<<'CODE'
         
 <?php
 $a = array('a' => 1, 'b' => 2, 3 => 'c');
@@ -367,10 +360,9 @@ function hello($who) {
 	alert("And here is some JS code"); // also colored
 </script>
 
-CODE
-        ,
+CODE,
 
-        'python' => <<<'CODE'
+    'python' => <<<'CODE'
 # Literals
 1234
 0.0e101
@@ -480,10 +472,9 @@ f'This is an error }'
 f'This is ok }}'
 fr'x={4*10}\n'
 
-CODE
-        ,
+CODE,
 
-        'js' => <<<'CODE'
+    'js' => <<<'CODE'
 // Demo code (the actual new parser character stream implementation)
 
 function StringStream(string) {
@@ -533,10 +524,9 @@ StringStream.prototype = {
 };
 
 
-CODE
-        ,
+CODE,
 
-        'json' => <<<'CODE'
+    'json' => <<<'CODE'
 {
   "@context": {
     "name": "http://schema.org/name",
@@ -566,10 +556,9 @@ CODE
 }
 
 
-CODE
-        ,
+CODE,
 
-        'jsond' => <<<'CODE'
+    'jsond' => <<<'CODE'
 {
   "@context": {
     "name": "http://schema.org/name",
@@ -599,10 +588,9 @@ CODE
 }
 
 
-CODE
-        ,
+CODE,
 
-        'typescript' => <<<'CODE'
+    'typescript' => <<<'CODE'
 class Greeter {
   greeting: string;
   constructor (message: string) {
@@ -623,7 +611,6 @@ button.onclick = function() {
 
 document.body.appendChild(button)
 
-CODE
-        ,
-    ];
+CODE,
+  ];
 }

@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\Post;
 
-use Encore\Admin\Actions\RowAction;
+use Ladmin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 
 class Replicate extends RowAction

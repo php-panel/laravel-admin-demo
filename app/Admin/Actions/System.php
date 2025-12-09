@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions;
 
-use Encore\Admin\Actions\Action;
+use Ladmin\Actions\Action;
 use Illuminate\Http\Request;
 
 class System extends Action

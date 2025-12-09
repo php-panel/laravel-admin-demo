@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\Document;
 
-use Encore\Admin\Actions\RowAction;
+use Ladmin\Actions\RowAction;
 use App\Models\Document;
 
 class CloneDocument extends RowAction
@@ -12,7 +12,7 @@ class CloneDocument extends RowAction
     public function handle(Document $document)
     {
         $document->replicate()->save();
-        
+
         return $this->response()->success('复制成功')->refresh();
     }
 

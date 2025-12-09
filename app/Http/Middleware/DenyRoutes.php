@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use Encore\Admin\Auth\Permission;
+use Ladmin\Auth\Permission;
 use Symfony\Component\HttpFoundation\Request;
 
 class DenyRoutes

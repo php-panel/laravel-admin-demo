@@ -2,11 +2,11 @@
 
 namespace App\Admin\Controllers;
 
-use Encore\Admin\Layout\Column;
-use Encore\Admin\Layout\Content;
+use Ladmin\Layout\Column;
+use Ladmin\Layout\Content;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Layout\Row;
-use Encore\Admin\Widgets;
+use Ladmin\Layout\Row;
+use Ladmin\Widgets;
 
 class WidgetsController extends Controller
 {
@@ -168,17 +168,17 @@ class WidgetsController extends Controller
         $form1->method('get');
         $form1->editor('text', 'Text');
 
-//            $form2 = new Form();
-//            $form2->method('get');
-//            $form2->php('text3', 'PHP')->default(file_get_contents(public_path('index.php')));
-//
-//            $form3 = new Form();
-//            $form3->method('get');
-//            $form3->markdown('text4', 'Markdown')->default(file_get_contents(base_path('readme.md')));
+        //            $form2 = new Form();
+        //            $form2->method('get');
+        //            $form2->php('text3', 'PHP')->default(file_get_contents(public_path('index.php')));
+        //
+        //            $form3 = new Form();
+        //            $form3->method('get');
+        //            $form3->markdown('text4', 'Markdown')->default(file_get_contents(base_path('readme.md')));
 
         $content->body((new Widgets\Box('WangEditor', $form1)));
-//            $content->body((new Box('PHP Editor', $form2)));
-//            $content->body((new Box('Markdown Editor', $form3)));
+        //            $content->body((new Box('PHP Editor', $form2)));
+        //            $content->body((new Box('Markdown Editor', $form3)));
 
 
         return $content;
@@ -202,4 +202,3 @@ class WidgetsController extends Controller
         }
     }
 }
-

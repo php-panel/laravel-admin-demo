@@ -4,7 +4,7 @@ namespace App\Admin\Actions\UserStory;
 
 use App\Models\User;
 use App\Models\UserStory;
-use Encore\Admin\Actions\RowAction;
+use Ladmin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 

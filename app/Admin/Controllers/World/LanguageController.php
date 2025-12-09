@@ -3,8 +3,8 @@
 namespace App\Admin\Controllers\World;
 
 use App\Models\World\Language;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use Ladmin\Grid;
+use Ladmin\Layout\Content;
 use App\Http\Controllers\Controller;
 
 class LanguageController extends Controller
@@ -53,4 +53,3 @@ class LanguageController extends Controller
         return $grid;
     }
 }
-

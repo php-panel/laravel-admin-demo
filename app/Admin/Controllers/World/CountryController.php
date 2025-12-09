@@ -4,9 +4,9 @@ namespace App\Admin\Controllers\World;
 
 use App\Models\World\City;
 use App\Models\World\Country;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
 
 class CountryController extends AdminController
 {
@@ -37,7 +37,6 @@ class CountryController extends AdminController
         $grid->rows(function (Grid\Row $row) {
 
             $row->column('language', "<a href='/demo/world/language?CountryCode={$row->Code}'>languages</a>");
-
         });
 
         $grid->filter(function ($filter) {
@@ -74,7 +73,6 @@ class CountryController extends AdminController
         $form->select('Capital')->options(function ($id) {
 
             return City::options($id);
-
         })->ajax('/demo/api/world/cities');
 
         $form->text('Code2');
@@ -82,4 +80,3 @@ class CountryController extends AdminController
         return $form;
     }
 }
-

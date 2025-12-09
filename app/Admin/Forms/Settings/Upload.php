@@ -2,7 +2,7 @@
 
 namespace App\Admin\Forms\Settings;
 
-use Encore\Admin\Widgets\Form;
+use Ladmin\Widgets\Form;
 use Illuminate\Http\Request;
 
 class Upload extends Form

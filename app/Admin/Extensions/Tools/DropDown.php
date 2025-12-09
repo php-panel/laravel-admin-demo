@@ -2,7 +2,7 @@
 
 namespace App\Admin\Extensions\Tools;
 
-use Encore\Admin\Grid\Tools\AbstractTool;
+use Ladmin\Grid\Tools\AbstractTool;
 
 class DropDown extends AbstractTool
 {
@@ -26,6 +26,5 @@ class DropDown extends AbstractTool
 </div>
 
 EOT;
-
     }
 }

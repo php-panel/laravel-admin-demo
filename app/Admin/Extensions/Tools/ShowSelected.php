@@ -2,7 +2,7 @@
 
 namespace App\Admin\Extensions\Tools;
 
-use Encore\Admin\Grid\Tools\BatchAction;
+use Ladmin\Grid\Tools\BatchAction;
 
 class ShowSelected extends BatchAction
 {
@@ -19,6 +19,5 @@ $('{$this->getElementClass()}').on('click', function() {
 });
 
 EOT;
-
     }
 }

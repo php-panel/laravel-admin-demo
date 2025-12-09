@@ -4,9 +4,9 @@ namespace App\Admin\Controllers;
 
 use App\Models\Tag;
 use App\Models\Video;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
 
 class VideoController extends AdminController
 {

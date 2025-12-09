@@ -3,9 +3,9 @@
 namespace App\Admin\Controllers\Movies;
 
 use App\Models\Movie\InTheater;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
 
 class InTheaterController extends AdminController
 {
@@ -28,7 +28,7 @@ class InTheaterController extends AdminController
         });
         $grid->directors()->pluck('name')->label('primary');
 
-        $grid->casts()->pluck('name')->label();
+        $grid->castList()->pluck('name')->label();
 
         $grid->genres()->badge();
 

@@ -2,7 +2,7 @@
 
 namespace App\Admin\Extensions\Nav;
 
-use Encore\Admin\Admin;
+use Ladmin\Admin;
 use Illuminate\Contracts\Support\Renderable;
 
 class AutoRefresh implements Renderable
@@ -64,6 +64,5 @@ SCRIPT;
 </li>
 
 HTML;
-
     }
 }

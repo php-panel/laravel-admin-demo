@@ -2,7 +2,7 @@
 
 namespace App\Admin\Actions\UserStory;
 
-use Encore\Admin\Actions\RowAction;
+use Ladmin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 
 class MoveUp extends RowAction
@@ -15,5 +15,4 @@ class MoveUp extends RowAction
 
         return $this->response()->success('移动完成.')->refresh();
     }
-
 }

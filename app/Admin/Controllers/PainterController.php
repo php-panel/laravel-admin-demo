@@ -3,9 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Painter;
-use Encore\Admin\Controllers\AdminController;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use Ladmin\Controllers\AdminController;
+use Ladmin\Form;
+use Ladmin\Grid;
 
 class PainterController extends AdminController
 {
@@ -50,7 +50,7 @@ class PainterController extends AdminController
         $form->textarea('bio')->rules('required');
 
         $form->hasMany('paintings', '他的作品', function (Form\NestedForm $form) {
-            $form->text('title');//->rules('required');
+            $form->text('title'); //->rules('required');
             $form->textarea('body');
             $form->datetime('completed_at');
         });
